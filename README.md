@@ -1,4 +1,4 @@
-# Video Widget [![Circle CI](https://circleci.com/gh/Rise-Vision/widget-video/tree/master.svg?style=svg)](https://circleci.com/gh/Rise-Vision/widget-video/tree/master)
+# Video Widget [![CircleCI](https://circleci.com/gh/Rise-Vision/widget-video-1.1.0/tree/master.svg?style=svg)](https://circleci.com/gh/Rise-Vision/widget-video-1.1.0/tree/master)
 
 ## Introduction
 
