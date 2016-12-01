@@ -42,6 +42,23 @@ RiseVision.Video.Player = function( params ) {
     RiseVision.Video.playerItemChange( index );
   }
 
+  function _onPlayerMeta( data ) {
+    // Log aspect event
+    RiseVision.Video.logEvent( {
+      event: "aspect",
+      event_details: JSON.stringify( {
+        placeholderWidth: params.width,
+        placeholderHeight: params.height,
+        placeholderAspect: _utils.getAspectRatio( params.width, params.height ),
+        videoWidth: data.width,
+        videoHeight: data.height,
+        videoAspect: _utils.getAspectRatio( data.width, data.height ),
+        scaleToFit: params.video.scaleToFit
+      } ),
+      file_url: _playerInstance.getPlaylistItem().file
+    }, false );
+  }
+
   function _onPlayerError( error ) {
     if ( error ) {
       RiseVision.Video.playerError( {
@@ -81,6 +98,10 @@ RiseVision.Video.Player = function( params ) {
 
       _playerInstance.on( "error", function( error ) {
         _onPlayerError( error );
+      } );
+
+      _playerInstance.on( "meta", function( data ) {
+        _onPlayerMeta( data );
       } );
 
       _playerInstance.setVolume( params.video.volume );
