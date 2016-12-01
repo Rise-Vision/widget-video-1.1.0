@@ -8,6 +8,19 @@ RiseVision.Video.PlayerUtils = ( function() {
   /*
    *  Public  Methods
    */
+  function getAspectRatio( width, height ) {
+
+    var r;
+
+    function gcd( a, b ) {
+      return ( b == 0 ) ? a : gcd( b, a % b );
+    }
+
+    r = gcd( width, height );
+
+    return width / r + ":" + height / r;
+  }
+
   function getPlaylist( list ) {
     var i,
       playlist = [];
@@ -39,6 +52,7 @@ RiseVision.Video.PlayerUtils = ( function() {
   }
 
   return {
+    "getAspectRatio": getAspectRatio,
     "getPlaylist": getPlaylist,
     "getVideoFileType": getVideoFileType
   };
