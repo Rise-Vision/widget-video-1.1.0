@@ -1,4 +1,5 @@
 *.log
+dist/
 src/components/
 node_modules/
 coverage/
