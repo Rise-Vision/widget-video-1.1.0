@@ -50,7 +50,7 @@
           mode = "file";
         }
 
-        RiseVision.Video.setAdditionalParams( additionalParams, mode );
+        RiseVision.Video.setAdditionalParams( additionalParams, mode, displayId );
       }
     }
   }
