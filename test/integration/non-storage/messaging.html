@@ -56,13 +56,13 @@
       }
     }, paramsStub, ready = false;
 
-    paramsStub = sinon.stub(RiseVision.Video, "setAdditionalParams", function (params, mode) {
+    paramsStub = sinon.stub(RiseVision.Video, "setAdditionalParams", function (params, mode, displayId) {
       ready = true;
 
       // restore the function
       paramsStub.restore();
       // call it again with the params
-      RiseVision.Video.setAdditionalParams(params, mode);
+      RiseVision.Video.setAdditionalParams(params, mode, displayId);
     });
 
     suiteSetup(function(done) {
@@ -152,7 +152,7 @@
 
       suiteSetup(function() {
         xhr = sinon.useFakeXMLHttpRequest();
-        
+
         xhr.onCreate = function (xhr) {
           requests.push(xhr);
         };
@@ -212,7 +212,7 @@
       test("should show File is downloaidng message when RC responds with a 202 for 3 consecutive times", function() {
         requests[1].respond(202); // HEAD request
         clock.tick(3000);
-        assert.equal(document.querySelector(".message").innerHTML, "There was a problem retrieving the file from Rise Cache.", "file is downloading message text");        
+        assert.equal(document.querySelector(".message").innerHTML, "There was a problem retrieving the file from Rise Cache.", "file is downloading message text");
         requests[2].respond(202); // HEAD request
         clock.tick(3000);
         assert.equal(document.querySelector(".message").innerHTML, "There was a problem retrieving the file from Rise Cache.", "file is downloading message text");
