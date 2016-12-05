@@ -1,0 +1,12 @@
+*.log
+dist/
+src/components/
+node_modules/
+coverage/
+src/config/config.js
+src/config/version.js
+tmp
+src/*-e2e.html
+reports/
+.idea
+widget-video.iml

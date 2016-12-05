@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Video Widget Integration Tests</title>
+
+  <script src="../src/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../src/components/web-component-tester/browser.js"></script>
+</head>
+<body>
+<script>
+  WCT.loadSuites([
+    "integration/non-storage/logging.html",
+    "integration/non-storage/messaging-legacy-player.html",
+    "integration/non-storage/messaging.html",
+    "integration/non-storage/file.html",
+    "integration/non-storage/pre-merge.html",
+    "integration/storage-v1/file.html",
+    "integration/storage-v1/folder.html",
+    "integration/storage-v1/logging-file.html",
+    "integration/storage-v1/logging-folder.html",
+    "integration/storage-v1/messaging-file.html",
+    "integration/storage-v1/messaging-folder.html",
+    "integration/storage-v1/version.html",
+    "integration/storage-v2/file.html",
+    "integration/storage-v2/folder.html",
+    "integration/storage-v2/logging-file.html",
+    "integration/storage-v2/logging-folder.html",
+    "integration/storage-v2/messaging-file.html",
+    "integration/storage-v2/messaging-folder.html",
+    "integration/storage-v2/version.html",
+  ]);
+</script>
+</body>
+</html>
