@@ -165,18 +165,20 @@ RiseVision.Video.StorageFolder = function( data, displayId ) {
 
       RiseVision.Video.logEvent( params, true );
 
-      if ( riseCache.isV2Running() ) {
-        errorMessage = riseCache.getErrorMessage( statusCode );
-      } else {
-        // Show a different message if there is a 404 coming from rise cache
+      riseCache.isV2Running( function showError( isV2 ) {
         if ( e.detail.error.message ) {
           statusCode = +e.detail.error.message.substring( e.detail.error.message.indexOf( ":" ) + 2 );
         }
 
-        errorMessage = utils.getRiseCacheErrorMessage( statusCode );
-      }
+        if ( isV2 ) {
+          errorMessage = riseCache.getErrorMessage( statusCode );
+        // Show a different message if there is a 404 coming from rise cache
+        } else {
+          errorMessage = utils.getRiseCacheErrorMessage( statusCode );
+        }
 
-      RiseVision.Video.showError( errorMessage );
+        RiseVision.Video.showError( errorMessage );
+      } );
     } );
 
     storage.addEventListener( "rise-cache-not-running", function( e ) {
