@@ -204,8 +204,12 @@ RiseVision.Video = ( function( window, gadgets ) {
       return;
     }
 
-    if ( _unavailableFlag && _storage ) {
-      _storage.retry();
+    if ( _unavailableFlag ) {
+      if ( _storage ) {
+        _storage.retry();
+      } else if ( _nonStorage ) {
+        _nonStorage.retry();
+      }
 
       return;
     }
